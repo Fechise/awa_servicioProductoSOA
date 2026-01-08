@@ -1,3 +1,4 @@
+#nullable enable
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
@@ -33,3 +34,4 @@ namespace ServicioClientesSOA.Models
         public TipoProducto? TipoProducto { get; set; }
     }
 }
+#nullable restore

@@ -28,12 +28,22 @@ export class TipoProductoListComponent implements OnInit {
   }
 
   deleteTipoProducto(id: number): void {
+    if (!confirm('¿Está seguro de eliminar este tipo de producto?')) {
+      return;
+    }
+    
     this.tipoProductoService.deleteTipoProducto(id).subscribe(
       () => {
         this.tipoProductos = this.tipoProductos.filter(tp => tp.id !== id);
+        alert('Tipo de producto eliminado exitosamente');
       },
       (error: any) => {
         console.error('Error deleting tipo producto', error);
+        if (error.error && error.error.message) {
+          alert(error.error.message);
+        } else {
+          alert('No se puede eliminar este tipo de producto porque tiene productos asociados.');
+        }
       }
     );
   }

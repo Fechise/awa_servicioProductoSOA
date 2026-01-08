@@ -1,1 +1,34 @@
 /* Add application styles here */
+
+/* Green theme for buttons and interactive elements */
+.btn-success {
+  background-color: #2d5016;
+  border-color: #2d5016;
+}
+
+.btn-success:hover {
+  background-color: #1f3710;
+  border-color: #1f3710;
+}
+
+.btn-primary {
+  background-color: #4a7c2f;
+  border-color: #4a7c2f;
+}
+
+.btn-primary:hover {
+  background-color: #2d5016;
+  border-color: #2d5016;
+}
+
+.navbar {
+  background-color: #2d5016 !important;
+}
+
+a.nav-link {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+a.nav-link:hover {
+  color: rgba(255, 255, 255, 1) !important;
+}

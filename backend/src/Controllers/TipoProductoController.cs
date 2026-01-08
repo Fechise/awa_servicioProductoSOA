@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ServicioClientesSOA.Services;
@@ -57,8 +58,19 @@ namespace ServicioClientesSOA.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            await _tipoProductoService.DeleteAsync(id);
-            return NoContent();
+            try
+            {
+                await _tipoProductoService.DeleteAsync(id);
+                return NoContent();
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error al eliminar el tipo de producto" });
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -45,6 +46,16 @@ namespace ServicioClientesSOA.Services
             var tipoProducto = await _context.TiposProducto.FindAsync(id);
             if (tipoProducto != null)
             {
+                // Check if there are products using this tipo
+                var productosUsandoTipo = await _context.Productos
+                    .AnyAsync(p => p.IdTipo == id);
+                
+                if (productosUsandoTipo)
+                {
+                    throw new InvalidOperationException(
+                        "No se puede eliminar este tipo de producto porque existen productos asociados a él.");
+                }
+                
                 _context.TiposProducto.Remove(tipoProducto);
                 await _context.SaveChangesAsync();
             }
