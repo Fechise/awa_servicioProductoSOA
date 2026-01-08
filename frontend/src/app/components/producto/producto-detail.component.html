@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Detalle del Producto</h2>
+  <div *ngIf="producto">
+    <p><strong>ID:</strong> {{ producto.id }}</p>
+    <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+    <p><strong>ID Tipo:</strong> {{ producto.idTipo }}</p>
+    <p><strong>Valor:</strong> {{ producto.valor | currency }}</p>
+    <p><strong>Costo:</strong> {{ producto.costo | currency }}</p>
+    <button [routerLink]="['/producto/edit', producto.id]" class="btn btn-warning">Editar</button>
+    <button routerLink="/producto" class="btn btn-secondary ms-2">Volver</button>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>{{ isEditMode ? 'Editar' : 'Nuevo' }} Producto</h2>
+  <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripción</label>
+      <input type="text" class="form-control" id="descripcion" formControlName="descripcion" required>
+    </div>
+    <div class="mb-3">
+      <label for="idTipo" class="form-label">Tipo de Producto</label>
+      <select class="form-select" id="idTipo" formControlName="idTipo" required>
+        <option value="">Seleccione un tipo</option>
+        <option *ngFor="let tipo of tiposProducto" [value]="tipo.id">{{ tipo.tipo }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="valor" class="form-label">Valor</label>
+      <input type="number" class="form-control" id="valor" formControlName="valor" required>
+    </div>
+    <div class="mb-3">
+      <label for="costo" class="form-label">Costo</label>
+      <input type="number" class="form-control" id="costo" formControlName="costo" required>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!productoForm.valid">Guardar</button>
+    <button type="button" class="btn btn-secondary ms-2" routerLink="/producto">Cancelar</button>
+  </form>
+</div>

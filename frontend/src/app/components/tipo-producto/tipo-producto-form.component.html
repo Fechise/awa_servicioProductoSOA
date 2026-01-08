@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>{{ isEditMode ? 'Editar' : 'Nuevo' }} Tipo de Producto</h2>
+  <form [formGroup]="tipoProductoForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="tipo" class="form-label">Tipo</label>
+      <input type="text" class="form-control" id="tipo" formControlName="tipo" required>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!tipoProductoForm.valid">Guardar</button>
+    <button type="button" class="btn btn-secondary ms-2" routerLink="/tipo-producto">Cancelar</button>
+  </form>
+</div>

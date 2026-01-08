@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Lista de Tipos de Producto</h2>
+  <button routerLink="/tipo-producto/new" class="btn btn-primary mb-3">Nuevo Tipo de Producto</button>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tipo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tipoProducto of tipoProductos">
+        <td>{{ tipoProducto.id }}</td>
+        <td>{{ tipoProducto.tipo }}</td>
+        <td>
+          <button [routerLink]="['/tipo-producto', tipoProducto.id]" class="btn btn-info btn-sm">Ver</button>
+          <button [routerLink]="['/tipo-producto/edit', tipoProducto.id]" class="btn btn-warning btn-sm mx-2">Editar</button>
+          <button (click)="deleteTipoProducto(tipoProducto.id)" class="btn btn-danger btn-sm">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

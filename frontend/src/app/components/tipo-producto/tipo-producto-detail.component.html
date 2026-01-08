@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>Detalle del Tipo de Producto</h2>
+  <div *ngIf="tipoProducto">
+    <p><strong>ID:</strong> {{ tipoProducto.id }}</p>
+    <p><strong>Tipo:</strong> {{ tipoProducto.tipo }}</p>
+    <button [routerLink]="['/tipo-producto/edit', tipoProducto.id]" class="btn btn-warning">Editar</button>
+    <button routerLink="/tipo-producto" class="btn btn-secondary ms-2">Volver</button>
+  </div>
+</div>
